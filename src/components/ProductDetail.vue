@@ -12,14 +12,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/theme/variables.scss';
+<style scoped>
 
-.product-detail {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 </style>

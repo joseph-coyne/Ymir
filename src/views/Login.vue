@@ -27,7 +27,7 @@
 import { mapState, mapMutations } from 'vuex'
 import { isNil } from 'lodash'
 import firebase from 'firebase/app'
-import { desktop as isDekstop } from 'is_js'
+import { desktop as isDesktop } from 'is_js'
 
 export default {
   data: () => ({ loginError: null }),
@@ -74,7 +74,7 @@ export default {
         // but we can't use it on mobile because it's not well supported
         // when app is running as standalone on ios & android
         // eslint-disable-next-line no-unused-expressions
-        isDekstop()
+        isDesktop()
           ? await firebase.auth().signInWithPopup(provider)
           : await firebase.auth().signInWithRedirect(provider)
       } catch (err) {
@@ -86,32 +86,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/theme/variables.scss';
+<style scoped>
 
-.page-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  .login-page-title {
-    text-align: center;
-  }
-
-  .login-btn {
-    margin-top: 20px;
-    cursor: pointer;
-    padding: 5px 20px;
-    border: 1px solid;
-    display: inline-block;
-    border-radius: 3px;
-    border-color: #2c3e50;
-
-    &:hover {
-      color: $vue-color;
-      border-color: $vue-color;
-    }
-  }
-}
 </style>
